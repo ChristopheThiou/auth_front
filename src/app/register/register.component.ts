@@ -9,14 +9,14 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  user: User = { email: '', password: '', role: '' };
+  user: User = { email: '', password: '' };
   error = '';
   constructor(private service: AuthService) {}
 
   onSubmitFail(){
     this.error = 'Errors';
   }
-  onSubmit(user: User) {
-    this.service.addUser(user).subscribe({error: () => this.onSubmitFail()});
+  onSubmit() {
+    this.service.addUser(this.user).subscribe({error: () => this.onSubmitFail()});
   }
 }
