@@ -1,16 +1,32 @@
-<form (ngSubmit)="onSubmit(user)">
-    <p>
-  <label for="username">Username : </label>
-  <input type="text" name="username" id="username" [(ngModel)]="user.email" />
-</p>
-<p>
-  <label for="password">Password : </label>
-  <input
-    type="password"
-    name="password"
-    id="password"
-    [(ngModel)]="user.password"
-  />
-</p>
-  <button>Login</button>
-</form>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <br>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit(user)">
+      <p>
+        <label for="username">Username : </label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          [(ngModel)]="user.email"
+        />
+      </p>
+      <p>
+        <label for="password">Password : </label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          [(ngModel)]="user.password"
+        />
+      </p>
+      <mat-card-footer>
+        <button>Login</button>
+      </mat-card-footer>
+    </form>
+  </mat-card-content>
+</mat-card>
+<div>{{error}}</div>

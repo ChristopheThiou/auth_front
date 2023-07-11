@@ -1,0 +1,13 @@
+label{
+    color: white;
+}
+mat-card-title{
+    color: white;
+}
+mat-card-header{
+    background-color: red;
+}
+mat-card{
+    width: 300px;
+    margin: 10px;
+}
