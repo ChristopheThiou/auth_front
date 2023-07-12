@@ -28,7 +28,5 @@ export class RegisterComponent {
   }
   changeForm(){
     this.isLogin = !this.isLogin;
-    console.log(this.isLogin);
-    
   }
 }
