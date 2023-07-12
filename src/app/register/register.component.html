@@ -1,8 +1,8 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
+    <mat-card-title *ngIf="isLogin == true">Login</mat-card-title>
   </mat-card-header>
-  <br>
+  <br />
   <mat-card-content>
     <form (ngSubmit)="onSubmit()">
       <p>
@@ -11,6 +11,7 @@
           type="text"
           name="username"
           id="username"
+          required
           [(ngModel)]="user.email"
         />
       </p>
@@ -20,13 +21,24 @@
           type="password"
           name="password"
           id="password"
+          required
           [(ngModel)]="user.password"
         />
       </p>
+      <p *ngIf="isLogin == true">
+        <label for="repeatpassword">Repeat Password : </label>
+        <input
+          type="password"
+          name="repeatpassword"
+          id="repeatpassword"
+          [(ngModel)]="repeatPassword"
+        />
+      </p>
       <mat-card-footer>
-        <button>Login</button>
+        <p><button>Login</button></p>
+        <p><button type="button" (click)="changeForm()">Change Form</button></p>
       </mat-card-footer>
     </form>
   </mat-card-content>
 </mat-card>
-<div>{{error}}</div>
+<p *ngIf="feedback">{{ feedback }}</p>

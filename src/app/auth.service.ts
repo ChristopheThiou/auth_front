@@ -10,4 +10,7 @@ export class AuthService {
   addUser(user: User) {
     return this.http.post<User>('http://localhost:8000/api/user', user);
   }
+  login(user: User) {
+    return this.http.post<User>('http://localhost:8000/api/login', user);
+  }
 }

@@ -10,13 +10,25 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent {
   user: User = { email: '', password: '' };
-  error = '';
-  constructor(private service: AuthService) {}
+  feedback = '';
+  repeatPassword = '';
+  isLogin = false;
+  constructor(private authService:AuthService){}
 
-  onSubmitFail(){
-    this.error = 'Errors';
-  }
   onSubmit() {
-    this.service.addUser(this.user).subscribe({error: () => this.onSubmitFail()});
+    if (this.isLogin == false) {
+      this.authService.login(this.user).subscribe(() => this.feedback ='Login complete');
+      return;
+    }
+    if (this.repeatPassword != this.user.password) {
+      this.feedback = 'Password dont match'
+      return;
+    }
+    this.authService.addUser(this.user).subscribe(() => this.feedback ='Registration complete.')
+  }
+  changeForm(){
+    this.isLogin = !this.isLogin;
+    console.log(this.isLogin);
+    
   }
 }
